@@ -16,7 +16,7 @@ window.onload = () => {
     const container = document.getElementById("globeViz");
 
     // ---- YOUR DESIRED GLOBE SIZE ----
-    const size = Math.min(window.innerWidth * 0.6, 600);
+    const size = Math.min(window.innerWidth * 0.6, 800);
     container.style.width = size + "px";
     container.style.height = size + "px";
 
@@ -24,6 +24,7 @@ window.onload = () => {
     const globe = Globe()
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
         .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
+        .pointOfView({ lat: 20, lng: 0, altitude: 0.9 }) 
         .labelLat(d => d.lat)
         .labelLng(d => d.lng)
         .labelsData(markers)
@@ -66,7 +67,7 @@ window.onload = () => {
         globe.pointOfView({
             lat: marker.lat,
             lng: marker.lng,
-            altitude: 1.4
+            altitude: 0.7
         }, 1500);
     });
 
