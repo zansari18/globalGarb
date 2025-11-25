@@ -36,7 +36,7 @@ window.onload = () => {
 
     // ---- AUTO ROTATE ----
     globe.controls().autoRotate = true;
-    globe.controls().autoRotateSpeed = 0.6;
+    globe.controls().autoRotateSpeed = 0.3;
 
     // ---- POPUP ----
     const popup = document.getElementById("markerPopup");
