@@ -54,7 +54,19 @@ window.onload = () => {
             el.src = `media/${d.icon}`;
             el.className = "marker-icon";
             return el;
-  });
+        })
+        .onClick(marker => {
+            popupTitle.textContent = marker.name;
+            popupContent.textContent = marker.text;
+            popup.classList.remove("hidden");
+
+            globe.pointOfView({
+                lat: marker.lat,
+                lng: marker.lng,
+                altitude: 0.7
+            }, 1500);
+    });
+
     globe.width(size);
     globe.height(size);
 
