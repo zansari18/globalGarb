@@ -31,23 +31,8 @@ window.onload = () => {
         .labelText(() => "●")
         .labelSize(1.5)
         (container);
-
-    // ---- FIX: After Globe.gl builds the scene, resize its canvas ----
-    setTimeout(() => {
-        const sceneContainer = container.querySelector(".scene-container");
-        if (sceneContainer) {
-            sceneContainer.style.width = size + "px";
-            sceneContainer.style.height = size + "px";
-
-            const canvas = sceneContainer.querySelector("canvas");
-            if (canvas) {
-                canvas.width = size;
-                canvas.height = size;
-                canvas.style.width = size + "px";
-                canvas.style.height = size + "px";
-            }
-        }
-    }, 50);
+    globe.width(size);
+    globe.height(size);
 
     // ---- AUTO ROTATE ----
     globe.controls().autoRotate = true;
