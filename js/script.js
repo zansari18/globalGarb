@@ -24,7 +24,7 @@ window.onload = () => {
     const globe = Globe()
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
         .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
-        .pointOfView({ lat: 20, lng: 0, altitude: 0.9 }) 
+        .pointOfView({ lat: 20, lng: 0, altitude: 1.2 }) 
         .labelLat(d => d.lat)
         .labelLng(d => d.lng)
         .labelsData(markers)
