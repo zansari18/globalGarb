@@ -85,17 +85,6 @@ window.onload = () => {
     const popupContent = document.getElementById("popupContent");
     const popupClose = document.getElementById("popupClose");
 
-    globe.onHtmlElementClick(marker => {
-        popupTitle.textContent = marker.name;
-        popupContent.textContent = marker.text;
-        popup.classList.remove("hidden");
-
-        globe.pointOfView({
-            lat: marker.lat,
-            lng: marker.lng,
-            altitude: 0.7
-        }, 1500);
-});
 
     popupClose.addEventListener("click", () => {
         popup.classList.add("hidden");
