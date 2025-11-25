@@ -49,6 +49,8 @@ window.onload = () => {
         (container);
     
     globe.htmlElementsData(markers)
+        .htmlElementLat(d => d.lat)
+        .htmlElementLng(d => d.lng)
         .htmlElement(d => {
             const el = document.createElement("img");
             el.src = `media/${d.icon}?v=${Date.now()}`;
