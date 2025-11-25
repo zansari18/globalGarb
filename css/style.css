@@ -120,19 +120,20 @@ p {
    GLOBE PAGE (full-screen navy)
 --------------------------------------- */
 .globe-wrapper {
-    position: relative;
-    height: calc(100vh - 70px);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: calc(100vh - 70px);
     background: var(--navy);
+    overflow: hidden;
 }
 
 #globeViz {
-    width: min(80vw, 700px);
-    height: min(80vw, 700px);
     margin: 0 auto;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ---------------------------------------
