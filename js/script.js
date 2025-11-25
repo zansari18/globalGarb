@@ -51,7 +51,7 @@ window.onload = () => {
     globe.htmlElementsData(markers)
         .htmlElement(d => {
             const el = document.createElement("img");
-            el.src = `media/${d.icon}`;
+            el.src = `media/${d.icon}?v=${Date.now()}`;
             el.className = "marker-icon";
 
       // <-- CLICK LISTENER GOES HERE
