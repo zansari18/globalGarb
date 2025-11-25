@@ -53,19 +53,24 @@ window.onload = () => {
             const el = document.createElement("img");
             el.src = `media/${d.icon}`;
             el.className = "marker-icon";
-            return el;
-        })
-        .onClick(marker => {
-            popupTitle.textContent = marker.name;
-            popupContent.textContent = marker.text;
+
+      // <-- CLICK LISTENER GOES HERE
+        el.addEventListener("click", () => {
+
+            popupTitle.textContent = d.name;
+            popupContent.textContent = d.text;
             popup.classList.remove("hidden");
 
             globe.pointOfView({
-                lat: marker.lat,
-                lng: marker.lng,
+                lat: d.lat,
+                lng: d.lng,
                 altitude: 0.7
             }, 1500);
-    });
+      });
+
+      return el;
+  });
+
 
     globe.width(size);
     globe.height(size);
