@@ -57,12 +57,19 @@ window.onload = () => {
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
         .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
         .pointOfView({ lat: 20, lng: 0, altitude: 1.2 })
-        .labelsData(markers)
-        .labelLat(d => d.lat)
-        .labelLng(d => d.lng)
-        .labelText(() => "●")
-        .labelColor(() => "#ffefd5")
-        .labelSize(1.5)
+        .htmlElementsData(markers)
+        .htmlElement(d => {
+          const el = document.createElement("div");
+          el.classList.add("marker");
+          const img = document.createElement("img");
+          img.src = d.img;
+          img.style.width = "20px";
+          img.style.height = "20px";
+          img.style.pointerEvents = "none";
+
+          el.appendChild(img);
+          return el;
+        })
         (container);
 
     globe.width(size);
@@ -79,7 +86,7 @@ window.onload = () => {
     const popupContent = document.getElementById("popupContent");
     const popupClose = document.getElementById("popupClose");
 
-    globe.onLabelClick(marker => {
+    globe.onHtmlElementClick(marker => {
         popupTitle.textContent = marker.name;
         popupContent.textContent = marker.text;
         popup.classList.remove("hidden");
