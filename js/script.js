@@ -90,22 +90,22 @@ window.onload = () => {
     const popupClose = document.getElementById("popupClose");
 
     globe.onHtmlElementClick(marker => {
-        popupTitle.textContent = marker.name;
-        popupContent.textContent = marker.text;
+    popupTitle.textContent = marker.name;
+    popupContent.textContent = marker.text;
 
-        if (marker.img) {
-            popupImage.src = marker.img;
-            popupImage.classList.remove("hidden");
-        }
+    if (marker.img) {
+        popupImage.src = marker.img;
+        popupImage.classList.remove("hidden");
+    }
 
-        popup.classList.remove("hidden");
+    popup.classList.remove("hidden");
 
-        globe.pointOfView({
-            lat: marker.lat,
-            lng: marker.lng,
-            altitude: 0.7
-        }, 1500);
-    });
+    globe.pointOfView({
+        lat: marker.lat,
+        lng: marker.lng,
+        altitude: 0.7
+    }, 1500);
+});
 
     popupClose.addEventListener("click", () => {
         popup.classList.add("hidden");
