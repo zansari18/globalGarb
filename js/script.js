@@ -60,12 +60,15 @@ window.onload = () => {
         .htmlElementsData(markers)
         .htmlElement(d => {
           const el = document.createElement("div");
-          el.classList.add("marker");
+          el.className = "marker";
+          el.style.pointerEvents = "auto";   // <-- allow clicks
+          el.style.cursor = "pointer";       // <-- show cursor
+
           const img = document.createElement("img");
           img.src = d.img;
           img.style.width = "20px";
           img.style.height = "20px";
-          img.style.pointerEvents = "none";
+
 
           el.appendChild(img);
           return el;
@@ -87,24 +90,22 @@ window.onload = () => {
     const popupClose = document.getElementById("popupClose");
 
     globe.onHtmlElementClick(marker => {
-        popupTitle.textContent = marker.name;
-        popupContent.textContent = marker.text;
-        popup.classList.remove("hidden");
-        if (marker.img) {
-            popupImage.src = marker.img;
-            popupImage.classList.remove("hidden");
-        } else {
-            popupImage.classList.add("hidden");
-        }
+    popupTitle.textContent = marker.name;
+    popupContent.textContent = marker.text;
 
-        popup.classList.remove("hidden");
+    if (marker.img) {
+        popupImage.src = marker.img;
+        popupImage.classList.remove("hidden");
+    }
 
-        globe.pointOfView({
-            lat: marker.lat,
-            lng: marker.lng,
-            altitude: 0.7
-        }, 1500);
-    });
+    popup.classList.remove("hidden");
+
+    globe.pointOfView({
+        lat: marker.lat,
+        lng: marker.lng,
+        altitude: 0.7
+    }, 1500);
+});
 
     popupClose.addEventListener("click", () => {
         popup.classList.add("hidden");
