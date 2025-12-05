@@ -142,13 +142,9 @@ p {
 .marker {
     transform: translate(-50%, -50%);
     position: absolute;
-    pointer-events: auto;
-    cursor: pointer;
+    pointer-events: none;
 }
 
-.marker img {
-    pointer-events: auto;
-}
 /* ---------------------------------------
    POPUP BOX
 --------------------------------------- */
