@@ -5,37 +5,43 @@ window.onload = () => {
             name: "India – Sari & Colonial Influence", 
             lat: 22.0, 
             lng: 78.0,
-            text: "The sari evolved under colonial rule as the textile exchange grew and modesty expectations changed. Saris originally had little fabric or no blouse, but through Islamic influence and British colonialism, the sari blouse was adopted."
+            text: "The sari evolved under colonial rule as the textile exchange grew and modesty expectations changed. Saris originally had little fabric or no blouse, but through Islamic influence and British colonialism, the sari blouse was adopted.", 
+            img: "media/avatar.png"
         },
         { 
             name: "South Korea – Fashion in Media",
             lat: 36.5, 
             lng: 127.5,
-            text: "K-pop and K-dramas have reshaped global fashion and reversed cultural flows, bringing hanbok into modern streetwear."
+            text: "K-pop and K-dramas have reshaped global fashion and reversed cultural flows, bringing hanbok silhouettes into modern streetwear.", 
+            img: "media/hanbok.png"
         },
         { 
             name: "Japan – Kimono", 
             lat: 36.2, 
             lng: 138.2,
-            text: "The kimono remains a symbol of national identity and craftsmanship. Every fold, color, and pattern carries cultural meaning."
+            text: "The kimono remains a symbol of national identity and craftsmanship. Every fold, color, and pattern carries cultural meaning.", 
+            img: "media/kimono.png"
         },
         { 
             name: "Ghana – Kente Cloth",
             lat: 7.95, 
             lng: -1.02,
-            text: "Kente cloth symbolizes prestige and identity through color and pattern. Obroni wawu transforms secondhand clothing into new cultural forms."
+            text: "Kente cloth symbolizes prestige and identity through color and pattern. Obroni wawu transforms secondhand clothing into new cultural forms.", 
+            img: "media/patterns.png"
         },
         { 
             name: "South Sudan – Clothing & Missionaries",
             lat: 7.3, 
             lng: 30.0,
-            text: "In 'We Come as Friends', missionaries enforce Western dress on children, using clothing as soft power to reshape identity."
+            text: "In 'We Come as Friends', missionaries enforce Western dress on children, using clothing as soft power to reshape identity.", 
+            img: "media/socks.png"
         },
         { 
             name: "Western Tuxedo – Symbol of Modernity", 
             lat: 51.5, 
             lng: -0.12,
-            text: "The tuxedo spread globally through colonial and cultural influence, becoming a universal symbol of professionalism and modernity."
+            text: "The tuxedo spread globally through colonial and cultural influence, becoming a universal symbol of professionalism and modernity.", 
+            img: "media/wedding-suit.png"
         }
     ];
 
@@ -69,12 +75,21 @@ window.onload = () => {
     // Popup
     const popup = document.getElementById("markerPopup");
     const popupTitle = document.getElementById("popupTitle");
+    const popupImage = document.getElementById("popupImage");
     const popupContent = document.getElementById("popupContent");
     const popupClose = document.getElementById("popupClose");
 
     globe.onLabelClick(marker => {
         popupTitle.textContent = marker.name;
         popupContent.textContent = marker.text;
+        popup.classList.remove("hidden");
+        if (marker.img) {
+            popupImage.src = marker.img;
+            popupImage.classList.remove("hidden");
+        } else {
+            popupImage.classList.add("hidden");
+        }
+
         popup.classList.remove("hidden");
 
         globe.pointOfView({
