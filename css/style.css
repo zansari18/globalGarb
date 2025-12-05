@@ -137,14 +137,6 @@ p {
     margin: 0 auto;
 }
 
-/* SOME ATTEMPT AT A MARKER*/
-
-.marker {
-    transform: translate(-50%, -50%);
-    position: absolute;
-    pointer-events: none;
-}
-
 /* ---------------------------------------
    POPUP BOX
 --------------------------------------- */
